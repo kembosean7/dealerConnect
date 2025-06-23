@@ -55,6 +55,12 @@ public class JwtService {
         return claimsTFunction.apply(claims);
     }
 
+
+
+    private Date extractExpiration(String token) {
+        return extractClaim(token, Claims::getExpiration);
+    }
+
     private Claims extractAllClaims(String token){
         return Jwts
                 .parser()
